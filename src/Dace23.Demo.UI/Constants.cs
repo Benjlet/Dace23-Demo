@@ -2,7 +2,8 @@
 {
     class Constants
     {
-        public const string CocktailScreenName = "CKTL";
-        public const string UserScreenName = "USER";
+        public const string CocktailScreenName = "COCKTAIL-API";
+        public const string UserScreenName = "USER-API";
+        public const string ExamplesScreenName = "DEMO-PAGES";
     }
 }

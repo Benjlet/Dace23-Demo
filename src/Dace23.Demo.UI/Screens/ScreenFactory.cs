@@ -1,4 +1,6 @@
-﻿namespace Dace23.Demo.UI
+﻿using System;
+
+namespace Dace23.Demo.UI
 {
     class ScreenFactory
     {
@@ -12,8 +14,11 @@
                 case Constants.UserScreenName:
                     return new UserScreen();
 
+                case Constants.ExamplesScreenName:
+                    return new ExamplesScreen();
+
                 default:
-                    return null;
+                    throw new NotSupportedException($"Screen '{name}' not configured.");
             }
         }
     }

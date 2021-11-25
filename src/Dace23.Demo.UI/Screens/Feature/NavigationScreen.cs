@@ -1,4 +1,5 @@
 ﻿using Dace23.Screens;
+using Dace23.Pages;
 using System.Collections.Generic;
 
 namespace Dace23.Demo.UI
@@ -8,9 +9,6 @@ namespace Dace23.Demo.UI
         private readonly Screen _exitScreen;
         private readonly Screen _navigationScreen;
 
-        private readonly CocktailScreen _cocktailSearch;
-        private readonly UserScreen _userGenerator;
-
         public NavigationScreen()
         {
             Dace23.Init();
@@ -18,9 +16,6 @@ namespace Dace23.Demo.UI
 
             _navigationScreen = CreateNavigationScreen();
             _exitScreen = CreateExitScreen();
-
-            _cocktailSearch = new CocktailScreen();
-            _userGenerator = new UserScreen();
         }
 
         public void Start()
@@ -47,8 +42,9 @@ namespace Dace23.Demo.UI
                 new List<string>()
                 {
                     Constants.CocktailScreenName,
-                    Constants.UserScreenName
-                });
+                    Constants.UserScreenName,
+                    Constants.ExamplesScreenName
+                }, SelectionPage.DisplayStackMode.Grid);
         }
 
         private Screen CreateExitScreen()

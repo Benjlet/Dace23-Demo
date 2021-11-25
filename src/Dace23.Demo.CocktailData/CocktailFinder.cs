@@ -11,10 +11,26 @@ namespace Dace23.Demo.CocktailData
             _httpClient = new HttpClient.HttpClient();
         }
 
-        public Cocktail[] FindByName(string name)
+        public Cocktail[] Find(string criteria, CocktailSearchType searchType)
         {
-            var cocktailData = new List<Cocktail>();
-            var drinkData = _httpClient.Get<DrinkData>($"https://www.thecocktaildb.com/api/json/v1/1/search.php?s={name}")?.Result;
+            string cocktailDataUrl = "https://www.thecocktaildb.com/api/json/v1/1/";
+
+            switch (searchType)
+            {
+                case CocktailSearchType.Letter:
+                    cocktailDataUrl += $"search.php?f={criteria}";
+                    break;
+
+                case CocktailSearchType.Random:
+                    cocktailDataUrl += $"random.php";
+                    break;
+
+                default:
+                    cocktailDataUrl += $"search.php?s={criteria}";
+                    break;
+            }
+
+            var drinkData = _httpClient.Get<DrinkData>(cocktailDataUrl)?.Result;
 
             return drinkData?.drinks?.Select(drink => new Cocktail()
             {

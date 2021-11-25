@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Screens\Feature\CocktailScreen.cs" />
+    <Compile Include="Screens\Feature\ExamplesScreen.cs" />
     <Compile Include="Screens\IScreen.cs" />
     <Compile Include="Screens\Feature\NavigationScreen.cs" />
     <Compile Include="Screens\ScreenFactory.cs" />
@@ -64,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Dace23">
-      <Version>2.2.1</Version>
+      <Version>2.6.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
