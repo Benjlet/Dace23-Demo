@@ -4,6 +4,10 @@ Dace23 is a UI component library for Console Applications, designed to format th
 
 This repo is a demonstration of its general functionality and what Fields, Pages, and Screens are available.
 
+The latest version of Dace23 is available on NuGet:
+
+https://www.nuget.org/packages/Dace23/
+
 # How to use
 
 Dace23 must first be initialised so it can manage the console buffer:
@@ -52,9 +56,7 @@ To this:
 new MessageScreen("Example-Message", $"You picked {result.ActiveField.Text}").Start();
 ```
 
-# Components
-
-## Screens
+# Screens
 
 Screens are considered the 'upper-level' of the UI, presenting and managing a collection of Pages.
 
@@ -67,7 +69,7 @@ Examples include:
   - **TextBoxScreen**: generates a single TextBoxPage
   - **Screen**: the default, empty screen
 
-## Pages
+# Pages
 
 Pages contain a collection of Fields to present to the user.
 
@@ -80,7 +82,7 @@ Examples include:
   - **TextBoxPage**: displays text in a scrollable and editable format
   - **Page**: the default, empty page
 
-## Fields
+# Fields
 
 Fields represent UI elements, such as an editable TextBox, a static Label, or a triggered DropDownBox, positioned on a Page.
 
@@ -116,9 +118,10 @@ The full list includes:
 # Screenshots
 
 Presenting User Data (courtesy of this API: https://randomuser.me/):
+
 ![image](https://user-images.githubusercontent.com/70886027/143666679-6cf1f456-a20d-440d-94d8-50900ebb0f68.png)
 
-Presenting Cocktail Data (courtesy of this API: https://www.thecocktaildb.com/api.php)
+Presenting Cocktail Data (courtesy of this API: https://www.thecocktaildb.com/api.php):
 
 ![image](https://user-images.githubusercontent.com/70886027/143666722-a9c84777-402a-48be-8d74-fb150d80f0c5.png)
 
