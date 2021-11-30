@@ -1,12 +1,12 @@
 # Overview
 
-Dace23 is a UI component library for Console Applications, designed to format the console like a classic mainframe eyesore, but also allow quickly-configurable form controls.
+Dace23 is a text-based UI component library for Console Applications, designed to format the console like a classic mainframe eyesore, but also allow quickly-configurable form controls.
 
-This repo is a demonstration of its general functionality and what Fields, Pages, and Screens are available.
+![image](https://user-images.githubusercontent.com/70886027/144134718-822d9ab9-63da-4a1c-a257-3ff3a1dc0a7e.png)
 
-The latest version of Dace23 is available on NuGet:
+This repo is a demonstration of its general functionality and visuals.
 
-https://www.nuget.org/packages/Dace23/
+The latest version of Dace23 is available via [NuGet](https://www.nuget.org/packages/Dace23/).
 
 # How to use
 
@@ -92,6 +92,7 @@ Examples include:
   - **TextBox** (editable - single or multi-line)
   - **ScrollBox** (read-only TextBox)
   - **CheckBox** (pressing Space toggles 'X' on or off)
+  - **NumberBox** (arrow keys increment/decrement its value)
   - **Button** (acts like a selectable label)
   - **DropDownBox** (pressing Space triggers an options dialog, Enter commits selected)
 
@@ -111,8 +112,8 @@ The full list includes:
   - F5 manually refreshes the UI
   - F6 advances to the next page of the screen. With the Shift modifier, this will go back a page.
   - TAB will tab to the next selectable field
-  - UP/DOWN ARROWS allow scrolling through text, where there are multiple lines
-  - SPACE toggles the behaviour of fields in Yellow, such as displaying Dropdown options or crossing a CheckBox
+  - UP/DOWN ARROWS allow scrolling through multi-line text and incrementing/decrementing NumberBoxes
+  - SPACE toggles the behaviour of fields in Dark Cyan (default), such as displaying Dropdown options or crossing a CheckBox
   - ENTER commits the changes of an Edit or Dropdown selection
 
 # Screenshots
