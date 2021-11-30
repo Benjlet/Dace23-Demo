@@ -6,6 +6,7 @@ namespace Dace23.Demo.CocktailData
     public class CocktailFinder
     {
         private readonly HttpClient.HttpClient _httpClient;
+
         public CocktailFinder()
         {
             _httpClient = new HttpClient.HttpClient();

@@ -27,7 +27,8 @@ namespace Dace23.Demo.UI
                 CreateFormPage(),
                 CreateTextBoxPage(),
                 CreateMessagePage(),
-                CreateScrollBoxPage());
+                CreateScrollBoxPage(),
+                CreateInteractivePage());
 
             return demoScreen;
         }
@@ -70,6 +71,33 @@ namespace Dace23.Demo.UI
                 "<description>Thick slices made from our homemade sourdough bread</description><calories>600</calories></food><food><name>Homestyle Breakfast</name><price>$6.95</price>" +
                 "<description>Two eggs, bacon or sausage, toast, and our ever-popular hash browns</description><calories>950</calories></food></breakfast_menu>"
                 , TextFormat.Xml);
+        }
+
+        private Page CreateInteractivePage()
+        {
+            var interactivePage = new Page("INTERACTIVE PAGE");
+
+            interactivePage.AddFields(
+                new Label(4, 4, "CHECKBOX (PRESS SPACE TO CHECK):"),
+                new CheckBox(4, 40, isChecked: false),
+
+                new Label(7, 4, "DROPDOWN (PRESS SPACE TO EXPAND):"),
+                new DropDownBox(7, 40, new string[] {
+                    "OPT-ONE", "OPT-TWO", "OPT-THREE", "OPT-FOUR", "OPT-FIVE", "OPT-SIX", "OPT-SEVEN" }, 10),
+
+                new Label(10, 4, "NUMBERBOX (UP-DOWN ARROWS):"),
+                new NumberBox(10, 40, minimum: 0, maximum: 10, startValue: 1),
+
+                new Label(13, 4, "BUTTON (F1):"),
+                new Button(13, 40, "->", width: 10),
+
+                new Label(16, 4, "TEXTBOX (F2):"),
+                new TextBox(16, 40, "Editable Text"),
+
+                new Label(19, 4, "SCROLLBOX (UP-DOWN ARROWS):"),
+                new ScrollBox(19, 40, new string[] { "LINE-ONE", "LINE-TWO", "LINE-THREE" }, width: 14, height: 2));
+
+            return interactivePage;
         }
     }
 }
