@@ -32,8 +32,8 @@ namespace Dace23.Demo.UI
                     return;
                 }
 
-                string searchCriteria = screenResult.ActivePage.GetFieldByName(_criteriaFieldName).Text;
-                Enum.TryParse(screenResult.ActivePage.GetFieldByName(_searchTypeFieldName).Text, out CocktailSearchType cocktailSearchType);
+                string searchCriteria = screenResult.ActivePage.Fields[_criteriaFieldName].Text;
+                Enum.TryParse(screenResult.ActivePage.Fields[_searchTypeFieldName].Text, out CocktailSearchType cocktailSearchType);
 
                 var cocktails = _cocktailFinder.Find(searchCriteria, cocktailSearchType);
 
@@ -61,32 +61,33 @@ namespace Dace23.Demo.UI
 
         private Page CreateResultPage(Cocktail cocktail)
         {
-            var cocktailPage = new Page(cocktail.Name ?? "");
+            return new Page(cocktail.Name ?? "")
+            {
+                Fields = new FieldCollection()
+                {
+                    new Label(3, 5, "NAME:"),
+                    new TextBox(3, 11, cocktail.Name ?? "", width: 30),
 
-            cocktailPage.AddFields(
-                new Label(3, 5, "NAME:"),
-                new TextBox(3, 11, cocktail.Name ?? "", width: 30),
+                    new Label(3, 44, "GLASS:"),
+                    new TextBox(3, 51, cocktail.Glass ?? "", width: 30),
 
-                new Label(3, 44, "GLASS:"),
-                new TextBox(3, 51, cocktail.Glass ?? "", width: 30),
+                    new Label(5, 5, "CATEGORY:"),
+                    new TextBox(5, 15, cocktail.Category ?? "", width: 26),
 
-                new Label(5, 5, "CATEGORY:"),
-                new TextBox(5, 15, cocktail.Category ?? "", width: 26),
+                    new Label(5, 44, "ALCOHOLIC:"),
+                    new TextBox(5, 55, cocktail.Alcoholic ? "Y" : "N", width: 2),
 
-                new Label(5, 44, "ALCOHOLIC:"),
-                new TextBox(5, 55, cocktail.Alcoholic ? "Y" : "N", width: 2),
+                    new Label(5, 61, "ID:"),
+                    new TextBox(5, 64, cocktail.Id ?? "", width: 16),
 
-                new Label(5, 61, "ID:"),
-                new TextBox(5, 64, cocktail.Id ?? "", width: 16),
+                    new Label(7, 5, "INGREDIENTS:"),
+                    new TextBox(9, 5, string.Join("\n", cocktail.Ingredients?.Where(i => i?.Measure != null && i?.Name != null)?
+                        .Select(i => $"- {i.Name} ({i.Measure})")), width: 100, height: 4),
 
-                new Label(7, 5, "INGREDIENTS:"),
-                new TextBox(9, 5, string.Join("\n", cocktail.Ingredients?.Where(i => i?.Measure != null && i?.Name != null)?
-                    .Select(i => $"- {i.Name} ({i.Measure})")), width: 100, height: 4),
-
-                new Label(14, 5, "INSTRUCTIONS:"),
-                new TextBox(16, 5, cocktail.Instructions ?? "", width: 100, height: 4));
-
-            return cocktailPage;
+                    new Label(14, 5, "INSTRUCTIONS:"),
+                    new TextBox(16, 5, cocktail.Instructions ?? "", width: 100, height: 4)
+                }
+            };
         }
 
         private Screen CreateSearchScreen()

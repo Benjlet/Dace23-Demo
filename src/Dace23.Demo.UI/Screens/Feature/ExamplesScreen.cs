@@ -21,16 +21,18 @@ namespace Dace23.Demo.UI
 
         private Screen CreateDemoScreen()
         {
-            var demoScreen = new Screen(Constants.ExamplesScreenName);
-
-            demoScreen.AddPages(
-                CreateFormPage(),
-                CreateTextBoxPage(),
-                CreateMessagePage(),
-                CreateScrollBoxPage(),
-                CreateInteractivePage());
-
-            return demoScreen;
+            return new Screen(Constants.ExamplesScreenName)
+            {
+                Pages = new PageCollection()
+                {
+                    CreateFormPage(),
+                    CreateTextBoxPage(),
+                    CreateMessagePage(),
+                    CreateScrollBoxPage(),
+                    CreateInteractivePage(),
+                    CreateBorderPage()
+                }
+            };
         }
 
         private FormPage CreateFormPage()
@@ -71,6 +73,28 @@ namespace Dace23.Demo.UI
                 "<description>Thick slices made from our homemade sourdough bread</description><calories>600</calories></food><food><name>Homestyle Breakfast</name><price>$6.95</price>" +
                 "<description>Two eggs, bacon or sausage, toast, and our ever-popular hash browns</description><calories>950</calories></food></breakfast_menu>"
                 , TextFormat.Xml);
+        }
+
+        private Page CreateBorderPage()
+        {
+            return new Page("BORDER PAGE")
+            {
+                Fields = new FieldCollection()
+                {
+                    new Label(7, 5, "THIS IS A SINGLE-LINED BORDER"),
+                    new Border(6, 4, 9, 35, BorderType.Single),
+
+                    new Label(10, 5, "THIS IS A DOUBLE-LINED BORDER"),
+                    new Border(9, 4, 12, 35, BorderType.Double),
+
+                    new Label(13, 7, "THIS IS A HASHED BORDER"),
+                    new Border(12, 4, 15, 35, BorderType.Hashed),
+
+                    new GroupBox(6, 40, 9, 80, "GROUP-BOX: DOUBLE/LEFT", BorderType.Double, Alignment.Left),
+                    new GroupBox(9, 40, 12, 80, "GROUP-BOX: SINGLE/CENTRE", BorderType.Single, Alignment.Centre),
+                    new GroupBox(12, 40, 15, 80, "GROUP-BOX: HASHED/RIGHT", BorderType.Hashed, Alignment.Right),
+                }
+            };
         }
 
         private Page CreateInteractivePage()

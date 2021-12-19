@@ -94,6 +94,8 @@ Examples include:
   - **CheckBox** (pressing Space toggles 'X' on or off)
   - **NumberBox** (arrow keys increment/decrement its value)
   - **Button** (acts like a selectable label)
+  - **Border** (read-only text border)
+  - **GroupBox** (read-only text border with a title)
   - **DropDownBox** (pressing Space triggers an options dialog, Enter commits selected)
 
 # Controls

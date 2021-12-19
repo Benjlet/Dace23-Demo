@@ -62,7 +62,7 @@ namespace Dace23.Demo.UI
             if (user.Gender == "female")
             {
                 userPage.AddFields(
-                    new ScrollBox(5, 59,
+                    new Label(5, 59,
                         @"┌─────────────────┐" +
                         @"│   ,'s//||\s`.   │" +
                         @"│  ///(((||)))\\. │" +
@@ -76,7 +76,7 @@ namespace Dace23.Demo.UI
             else
             {
                 userPage.AddFields(
-                    new ScrollBox(5, 59,
+                    new Label(5, 59,
                         @"┌─────────────────┐" +
                         @"|  // /|\ \\\     |" +
                         @"│  ;--..--._|}    │" +
