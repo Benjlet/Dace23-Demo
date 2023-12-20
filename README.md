@@ -22,7 +22,7 @@ ConsoleUI.Init();
 Screens can be declared, containing Pages:
 
 ```
-Screen screen = new("Example-Screen");
+Screen screen = new();
 
 Page page = new("Example-Page");
 Page page2 = new("Example-Page2");
@@ -88,7 +88,7 @@ The full list includes:
 There are some template screens used to generate default pages and fieldsyou. For example, using a 'MessageScreen' to display a simple message condenses this:
 
 ```
-Screen screen = new("Example-Message");
+Screen screen = new();
 Page page = new("Example-Message");
 Label message = new(Pos.On(10, 10), "This is a message");
 

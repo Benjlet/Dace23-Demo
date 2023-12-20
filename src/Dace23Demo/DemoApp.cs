@@ -31,7 +31,7 @@ namespace Dace23Demo
             userNav.OnSubmit(() => userScreen.Start());
             cocktailNav.OnSubmit(() => cocktailScreen.Start());
 
-            return new Screen("MENU")
+            return new Screen()
                 .WithPages(new Page("OPTIONS")
                 .WithFields(cocktailNav, userNav));
         }

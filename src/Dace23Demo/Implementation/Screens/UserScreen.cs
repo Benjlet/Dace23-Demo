@@ -84,7 +84,7 @@ namespace Dace23Demo.Implementation.Screens
                         height: 8, width: 19));
             }
 
-            return new Screen("USER").WithPages(userPage);
+            return new Screen().WithPages(userPage);
         }
     }
 }

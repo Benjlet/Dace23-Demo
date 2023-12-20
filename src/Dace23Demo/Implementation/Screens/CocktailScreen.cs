@@ -61,12 +61,12 @@ namespace Dace23Demo.Implementation.Screens
 
             searchPage.AddFields(dropDown, criteria, searchButton);
 
-            return new Screen("SEARCH").WithPages(searchPage);
+            return new Screen().WithPages(searchPage);
         }
 
         private static Screen CreateResultsScreen(IEnumerable<Cocktail> cocktails)
         {
-            Screen resultsScreen = new("Cocktails");
+            Screen resultsScreen = new();
 
             if (cocktails != null && cocktails.Any())
             {
